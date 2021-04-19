@@ -6,7 +6,7 @@
     <c:param name="content">
         <c:choose>
             <c:when test="${employee != null}"><%-- nullでないとき --%>
-                <h2>id : ${emloyee.id}の従業員情報　詳細ページ</h2>
+                <h2>id : ${employee.id}の従業員情報　詳細ページ</h2>
 
                 <table>
                     <tbody>
