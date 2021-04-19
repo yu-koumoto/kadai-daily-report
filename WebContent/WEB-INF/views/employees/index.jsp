@@ -15,7 +15,7 @@
                     <th>氏名</th>
                     <th>操作</th>
                 </tr>
-                <c:forEach var="employee" items="${employee}" varStatus="status">
+                <c:forEach var="employee" items="${employees}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${employee.code}" /></td>
                         <td><c:out value="${employee.name}" /></td>
@@ -33,6 +33,7 @@
                 </c:forEach>
             </tbody>
         </table>
+
         <div id="pagination">
             （全 ${employees_count} 件）<br />
             <c:forEach var="i" begin="1" end="${((employees_count - 1) / 15) + 1}" step="1">
