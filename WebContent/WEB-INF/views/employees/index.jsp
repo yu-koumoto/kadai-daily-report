@@ -15,6 +15,7 @@
                     <th>氏名</th>
                     <th>操作</th>
                 </tr>
+                <%-- items＝"${テーブル名}" をいれる--%>
                 <c:forEach var="employee" items="${employees}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${employee.code}" /></td>
