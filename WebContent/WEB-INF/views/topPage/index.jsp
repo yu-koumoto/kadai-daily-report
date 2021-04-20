@@ -6,7 +6,7 @@
             <div id="flush_success">
                 <c:out value="${flush}"></c:out>
             </div>
-         </c:if>
+        </c:if>
         <h2>日報管理システムへようこそ</h2>
     </c:param>
 </c:import>

@@ -18,8 +18,9 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+     font-size: 24px;
     display: inline;
+    }
 
 h2 {
     font-size: 36px;
@@ -132,3 +133,4 @@ select {
 h1 a {
     color: #eeeeee;
 }
+
