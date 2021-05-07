@@ -24,6 +24,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <th>出勤時刻</th>
+                            <td><c:out value="${report.syukkin}"/></td>
+                        </tr>
+                        <tr>
+                            <th>退勤時刻</th>
+                            <td><c:out value="${report.taikin}"/></td>
+                        </tr>
+                        <tr>
                             <th>登録日時</th>
                             <td>
                                 <fmt:formatDate value="${report.created_at}" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -41,7 +49,6 @@
                 <c:if test="${sessionScope.login_employee.id == report.employee.id}">
                     <p><a href="<c:url value="/reports/edit?id=${report.id}" />">この日報を編集する</a></p>
                 </c:if>
-                    <p><a href="GoodServlet?action=sample">いいネ!</a></p>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>

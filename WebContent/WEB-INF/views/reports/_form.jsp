@@ -27,5 +27,16 @@
  <textarea name="content" rows="10" cols="50">${report.content}</textarea>
 <br /><br />
 
+<p>例のように入力をお願いします。（例　12時59分</p>
+<br />
+
+<label for="syukkin">出勤</label><br />
+<input type="text" name = "syukkin" value="${report.syukkin}">
+<br  /><br  />
+
+<label for="taikin">退勤</label><br />
+<input type="text" name ="taikin" value="${report.taikin}">
+<br  /><br  />
+
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">投稿</button>

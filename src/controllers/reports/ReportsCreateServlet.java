@@ -41,7 +41,7 @@ public class ReportsCreateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())){
             EntityManager em = DBUtil.createEntityManager();
 
-            Report r = new Report();
+            Report r = new Report();//新しいレポートをインスタンス化
 
             r.setEmployee((Employee)request.getSession().getAttribute("login_employee"));
 
@@ -55,9 +55,14 @@ public class ReportsCreateServlet extends HttpServlet {
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
 
+            //此処から新しく追加
+            r.setSyukkin(request.getParameter("syukkin"));
+            r.setTaikin(request.getParameter("taikin"));
+
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-            r.setCreated_at(currentTime);
-            r.setUpdated_at(currentTime);
+            r.setCreated_at(currentTime);//現在の時刻を引数にしてセット
+            r.setUpdated_at(currentTime);//現在の時刻を引数にしてセット
 
             List<String> errors = ReportValidator.validate(r);
             if(errors.size() > 0) {

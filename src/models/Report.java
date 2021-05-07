@@ -17,22 +17,10 @@ import javax.persistence.Table;
 
 @Table(name = "reports")
 @NamedQueries({
-        @NamedQuery(
-                name = "getAllReports",
-                query= "SELECT r FROM Report AS r ORDER BY r.id DESC"
-                         ),
-        @NamedQuery(
-                name = "getReportsCount",
-                query = "SELECT COUNT(r) FROM Report AS r"
-                         ),
-        @NamedQuery(
-                name = "getMyAllReports",
-                query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"
-                ),
-        @NamedQuery(
-                name = "getMyReportsCount",
-                query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
-            )
+        @NamedQuery(name = "getAllReports", query = "SELECT r FROM Report AS r ORDER BY r.id DESC"),
+        @NamedQuery(name = "getReportsCount", query = "SELECT COUNT(r) FROM Report AS r"),
+        @NamedQuery(name = "getMyAllReports", query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"),
+        @NamedQuery(name = "getMyReportsCount", query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee")
 })
 @Entity
 public class Report {
@@ -42,7 +30,6 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
     /*ManyToOneについて
      * 日報報告書を毎日書いたときにaが4日分の日報を出したとき
      * aは4日分の日報をもっているが日報から見たときに作成者は1人なので
@@ -51,7 +38,6 @@ public class Report {
      * テーブルAとテーブルBがあるとします。
     このときテーブルBに、テーブルAのidを保持するカラムを追加します。
     このような方法を 外部キー（外部キー制約） と呼ばれています。*/
-
 
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
@@ -72,6 +58,12 @@ public class Report {
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
+
+    @Column(name = "syukkin", nullable = false)
+    private String syukkin;
+
+    @Column(name = "taikin", nullable = false)
+    private String taikin;
 
     public Integer getId() {
         return id;
@@ -127,6 +119,23 @@ public class Report {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+
+    public String getSyukkin() {
+        return syukkin;
+    }
+
+    public void setSyukkin(String syukkin) {
+        this.syukkin = syukkin;
+    }
+
+    public String getTaikin() {
+        return taikin;
+    }
+
+    public void setTaikin(String taikin) {
+    this.taikin = taikin;
     }
 
 }
