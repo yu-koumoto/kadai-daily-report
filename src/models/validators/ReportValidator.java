@@ -20,9 +20,20 @@ public class ReportValidator {
             errors.add(content_error);
         }
 
-        return errors;
+        String syukkin_error = _validateSyukkin(r.getSyukkin());
+        if (!syukkin_error.equals("")) {
+            errors.add(syukkin_error);
 
         }
+
+        String taikin_error = _validateTaikin(r.getTaikin());
+        if (!taikin_error.equals("")) {
+            errors.add(taikin_error);
+
+        }
+        return errors;
+
+    }
 
     private static String _validateTitle(String title) {
         if (title == null || title.equals("")) {
@@ -31,7 +42,7 @@ public class ReportValidator {
 
         return "";
 
-        }
+    }
 
     private static String _validateContent(String content) {
         if (content == null || content.equals("")) {
@@ -40,5 +51,21 @@ public class ReportValidator {
 
         return "";
 
+    }
+
+    private static String _validateSyukkin(String syukkin) {
+        if (syukkin == null || syukkin.equals("")) {
+            return "出勤時間を入力してください";
+        }
+
+        return "";
+    }
+
+    private static String _validateTaikin(String taikin) {
+        if (taikin == null || taikin.equals("")) {
+            return "退勤時間を入力してください";
+        }
+
+        return "";
     }
 }
